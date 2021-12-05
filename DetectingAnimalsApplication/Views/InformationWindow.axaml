@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DetectingAnimalsApplication.Views.InformationWindow"
+		Icon="/Assets/favicon.ico"
+        Title="{Binding Title}" MinWidth="800" MinHeight="450">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<TextBlock Text="{Binding Title}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+		<Button Content="Назад" Margin="10" Command="{Binding BackCommand}"/>
+		<ScrollViewer VerticalScrollBarVisibility="Visible" Grid.Row="1">
+			<Grid Margin="10" HorizontalAlignment="Center" >
+				<StackPanel Spacing="10">
+					<TextBlock TextWrapping="Wrap">
+						Это информационное решение для работы с фотоловушками, фильтрацией и аналитикой данных.
+					</TextBlock>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+						<TextBlock TextWrapping="Wrap" Grid.Column="1" Width="250" VerticalAlignment="Center">
+							Для того чтобы загрузить фотографии для отбора, кликните по кнопке "Добавить фото". После этого откроется диалоговое окно, в котором вам нужно будет выбрать фотографии для загрузки; возможна загрузка нескольких фотографий сразу.
+						</TextBlock>
+						<Image Source="\Assets\Information\AddImage.png" Height="250" Grid.Column="2"></Image>
+					</StackPanel>
+					<TextBlock TextWrapping="Wrap">
+						Если вы выделили не те фотографии или у вас остались фотографии после предыдущего отбора - вы можете удалить их. Для того, чтобы удалить фотографии вы должны выделить их и нажать кнопку "Удалить выбранное". Для выделения нескольких фотографий используйте клавишу Ctrl или Shift. Для выделения всех фотографий вы можете воспользоваться сочетанием клавиш Ctrl + A.
+						
+					</TextBlock>
+					<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+						<Image Source="\Assets\Information\Deleting.png" Height="250" Grid.Column="2"></Image>
+						<TextBlock TextWrapping="Wrap" Grid.Column="1" Width="250" VerticalAlignment="Center">
+							Также, есть возможность удалить фотографию, нажав на нее правой кнопкой мыши и выбрав в всплывшем контекстном меню "Удалить".
+						</TextBlock>
+					</StackPanel>
+					<TextBlock TextWrapping="Wrap">						
+						После того, как вы выбрали нужные фотографии - вы можете нажать на кнопку "Отобрать" и выбрать папку для сохранения данных:						
+					</TextBlock>
+					<Image Source="\Assets\Information\SelectingOutputFolder.png" Height="250" HorizontalAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap">
+					После завершения работы нейронной сети, программа уведомит вас об успешном завершении работы:
+					</TextBlock>
+					<Image Source="\Assets\Information\SuccessMessage.png" Height="250" HorizontalAlignment="Center"/>
+					<TextBlock TextWrapping="Wrap">
+						Алгоритм работы с видео аналогичен.
+					</TextBlock>
+					<TextBlock TextWrapping="Wrap" FontWeight="DemiBold">
+						Авторы: iSeals.      
+					</TextBlock>					
+					<TextBlock TextWrapping="Wrap" FontWeight="DemiBold">
+						Почта: isealsru@gmail.com
+					</TextBlock>
+				</StackPanel>
+			</Grid>
+		</ScrollViewer>
+	</Grid>
+	
+</Window>

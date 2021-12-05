@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DetectingAnimalsApplication.Views.MainMenuWindow"
+	    xmlns:vm="using:DetectingAnimalsApplication.ViewModels"
+        Icon="/Assets/favicon.ico"
+        Title="{Binding Title}" MinWidth="800" MinHeight="450">
+	<Design.DataContext>
+		<vm:MainMenuViewModel></vm:MainMenuViewModel>
+	</Design.DataContext>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<TextBlock  Text="{Binding Title}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+		<StackPanel Grid.Row="1" Spacing="20" VerticalAlignment="Center" >
+			<Button Content="Страница отбора фотографий" HorizontalAlignment="Center" Width="250" HorizontalContentAlignment="Center" Command="{Binding NavigateDetectingPhoto}"/>
+			<Button Content="Страница отбора видео" HorizontalAlignment="Center" Width="250" HorizontalContentAlignment="Center" Command="{Binding NavigateDetectingVideo}"/>
+			<Button Content="Информация" HorizontalAlignment="Center" Width="250" HorizontalContentAlignment="Center" Command="{Binding NavigateInformation}"/>
+			<Button Content="Выход" HorizontalAlignment="Center" Width="250" HorizontalContentAlignment="Center" Command="{Binding ExitCommand}"/>
+		</StackPanel>
+	</Grid>
+</Window>

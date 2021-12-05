@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DetectingAnimalsApplication", "DetectingAnimalsApplication\DetectingAnimalsApplication.csproj", "{EB107DDC-771A-4A2D-8FCD-664093B5827B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB107DDC-771A-4A2D-8FCD-664093B5827B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB107DDC-771A-4A2D-8FCD-664093B5827B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB107DDC-771A-4A2D-8FCD-664093B5827B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB107DDC-771A-4A2D-8FCD-664093B5827B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {914EEE00-F0CC-4B0E-99BA-66927A94E24F}
+	EndGlobalSection
+EndGlobal

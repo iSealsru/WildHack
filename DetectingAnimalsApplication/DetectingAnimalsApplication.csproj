@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+    <None Remove=".gitignore" />
+    <None Remove="Assets\error.png" />
+    <None Remove="Assets\favicon.ico" />
+    <None Remove="Assets\info.png" />
+    <None Remove="Assets\Information\AddImage.png" />
+    <None Remove="Assets\Information\Deleting.png" />
+    <None Remove="Assets\Information\SelectingOutputFolder.png" />
+    <None Remove="Assets\Information\SuccessMessage.png" />
+    <None Remove="Assets\videoIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.10" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.10" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.9.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.9.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Yolov5Net.Scorer">
+      <HintPath>..\..\..\..\Desktop\yolov5-net-master - Copy\src\Yolov5Net.Scorer\bin\Debug\netstandard2.0\Yolov5Net.Scorer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

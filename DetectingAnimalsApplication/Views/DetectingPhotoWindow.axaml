@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DetectingAnimalsApplication.Views.DetectingPhotoWindow"
+        Icon="/Assets/favicon.ico"
+        Title="{Binding Title}" MinWidth="800" MinHeight="450">
+
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="60"/>
+			<RowDefinition/>
+			<RowDefinition Height="60"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="auto"/>
+		</Grid.ColumnDefinitions>
+		<Button  Content="Назад" Margin="10" HorizontalContentAlignment="Center" Command="{Binding BackCommand}" />
+		<TextBlock Grid.ColumnSpan="2" Text="{Binding Title}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24"/>
+		<StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="10">
+			<Button  Content="Удалить выбранное" Width="180"  HorizontalContentAlignment="Center" Command="{Binding RemoveSelectedCommand}" />
+			<Button  Content="Отобрать"  Width="180"  HorizontalContentAlignment="Center"  Margin="10,0" Command="{Binding PredictCommand}"/>
+			<Button  Content="Добавить фото" Height="30" Width="180" HorizontalContentAlignment="Center" Command="{Binding SelectPhotoCommand}" />
+		</StackPanel>
+		<ProgressBar Value="{Binding PredictValue}" Grid.Row="2" VerticalAlignment="Center" Margin="10"></ProgressBar>
+		<ListBox Grid.Row="1" Margin="10" Items="{Binding PhotosList}"
+				 SelectedItems="{Binding SelectedPhotos}" SelectionMode="Multiple" Grid.ColumnSpan="2">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel></WrapPanel>
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>ContextMneu
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+						<StackPanel ToolTip.Tip="{Binding Path}">
+							<StackPanel.ContextMenu>
+								<ContextMenu>
+									<MenuItem Command="{Binding RemoveCommand}" Header="Удалить"/>
+								</ContextMenu>
+						    </StackPanel.ContextMenu>
+							<Image Margin="5" Source="{Binding Photo}" MinWidth="200" Height="200"></Image>
+							<TextBlock Text="{Binding Name}" HorizontalAlignment="Center" Margin="5"></TextBlock>
+					    </StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</Window>
