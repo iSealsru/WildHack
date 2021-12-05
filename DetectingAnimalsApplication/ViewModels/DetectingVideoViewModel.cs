@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoCreating;
 using VideoFormatter;
 
 namespace DetectingAnimalsApplication.ViewModels
@@ -125,8 +126,11 @@ namespace DetectingAnimalsApplication.ViewModels
         {
             for (int i = 0; i < VideoList.Count; i++)
             {
-                NNModel.Predict(VideoList[i].Path, _absolutePath);
+                string pathToModel = Environment.CurrentDirectory + "\\Weights\\best.onnx";
+                VideoCreate create = new VideoCreate(VideoList[i].Path, pathToModel);
+                create.CreateNewVideo(_absolutePath);
                 _worker.ReportProgress((int)(((double)i + 1) / ((double)VideoList.Count) * 100));
+
             }
         }
         /// <summary>
@@ -206,7 +210,15 @@ namespace DetectingAnimalsApplication.ViewModels
         /// </summary>
         private async void Predict()
         {
-            
+            if ((VideoList == null || VideoList.Count == 0))
+                return;
+            if (!_worker.IsBusy)
+            {
+
+                OpenFolderDialog openFolderDialog = new();
+                _absolutePath = await openFolderDialog.ShowAsync(_currentWindow);
+                _worker.RunWorkerAsync();
+            }
         }
         #endregion
     }

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Emgu.CV" Version="4.5.4.4788" />
+    <PackageReference Include="Emgu.CV.Bitmap" Version="4.5.4.4788" />
+    <PackageReference Include="Emgu.CV.runtime.windows" Version="4.5.4.4788" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Yolov5Net.Scorer">
+      <HintPath>..\DetectingAnimalsApplication\bin\Debug\net5.0\Yolov5Net.Scorer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
