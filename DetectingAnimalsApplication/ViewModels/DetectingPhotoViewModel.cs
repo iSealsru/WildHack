@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 
@@ -37,7 +38,7 @@ namespace DetectingAnimalsApplication.ViewModels
         /// <summary>
         /// Путь, по которому требуется сохранить результат работы нейронной сети.
         /// </summary>
-        private string? _absolutePath;
+        private string? _absolutePath = "";
         #endregion
 
         /// <summary>
@@ -201,8 +202,11 @@ namespace DetectingAnimalsApplication.ViewModels
         /// </summary>
         private async void Predict()
         {
+            if ((PhotosList == null || PhotosList.Count == 0))
+                return;
             if (!_worker.IsBusy)
             {
+                
                 OpenFolderDialog openFolderDialog = new();
                 _absolutePath = await openFolderDialog.ShowAsync(_currentWindow);
                 _worker.RunWorkerAsync();

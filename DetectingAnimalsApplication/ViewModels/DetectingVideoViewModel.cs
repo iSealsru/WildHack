@@ -206,12 +206,7 @@ namespace DetectingAnimalsApplication.ViewModels
         /// </summary>
         private async void Predict()
         {
-            if (!_worker.IsBusy)
-            {
-                OpenFolderDialog openFolderDialog = new();
-                _absolutePath = await openFolderDialog.ShowAsync(_currentWindow);
-                _worker.RunWorkerAsync();
-            }
+            
         }
         #endregion
     }
