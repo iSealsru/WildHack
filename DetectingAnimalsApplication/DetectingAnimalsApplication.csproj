@@ -32,8 +32,11 @@
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VideoFormatter\VideoFormatter.csproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="Yolov5Net.Scorer">
-      <HintPath>..\..\..\..\Desktop\yolov5-net-master - Copy\src\Yolov5Net.Scorer\bin\Debug\netstandard2.0\Yolov5Net.Scorer.dll</HintPath>
+      <HintPath>..\..\yolov5-net-master - Copy\src\Yolov5Net.Scorer\bin\Debug\netstandard2.0\Yolov5Net.Scorer.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

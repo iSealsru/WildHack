@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VideoFormatter;
 
 namespace DetectingAnimalsApplication.ViewModels
 {
@@ -183,15 +184,19 @@ namespace DetectingAnimalsApplication.ViewModels
                     {
                         var name = selectedFile.Split('\\')[^1];
 
-                        using (MemoryStream ms = new(File.ReadAllBytes(selectedFile)))
+                        var bitmap = VideoFormatter.VideoFormatter.GetMiddleFrame(selectedFile);
+                        byte[] bytes;
+                        using (MemoryStream ms = new MemoryStream())
                         {
-                            var a = new Bitmap(ms);
+                            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            bytes = ms.ToArray();
                         }
-                        FileModel photoModel = new(name, selectedFile, File.ReadAllBytes(selectedFile));
-                        photoModel.AddFile(VideoList);
+                        FileModel videoModel = new(name, selectedFile, bytes);
+                        
+                        videoModel.AddFile(VideoList);
 
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         ErrorMessageWindow message = new("Ошибка", $"При загрузке файла {selectedFile} произошла ошибка.");
                         await message.ShowDialog(_currentWindow);
