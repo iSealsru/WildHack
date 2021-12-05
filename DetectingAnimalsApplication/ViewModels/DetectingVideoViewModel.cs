@@ -183,20 +183,17 @@ namespace DetectingAnimalsApplication.ViewModels
                     try
                     {
                         var name = selectedFile.Split('\\')[^1];
-
                         var bitmap = VideoFormatter.VideoFormatter.GetMiddleFrame(selectedFile);
-                        byte[] bytes;
                         using (MemoryStream ms = new MemoryStream())
                         {
                             bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                            bytes = ms.ToArray();
                         }
-                        FileModel videoModel = new(name, selectedFile, bytes);
+                        FileModel videoModel = new(name, selectedFile);
                         
                         videoModel.AddFile(VideoList);
 
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         ErrorMessageWindow message = new("Ошибка", $"При загрузке файла {selectedFile} произошла ошибка.");
                         await message.ShowDialog(_currentWindow);
